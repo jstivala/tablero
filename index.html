@@ -7,11 +7,30 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="apple-touch-icon.png">
 <meta name="robots" content="noindex,nofollow">
-<style>body{margin:0;height:100vh;display:flex;align-items:center;justify-content:center;background:#fff;font-family:-apple-system,system-ui,sans-serif;color:#17284a}</style>
+<style>
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#fff;font-family:-apple-system,system-ui,sans-serif;color:#17284a;text-align:center;padding:24px;box-sizing:border-box}
+img{width:96px;height:96px;border-radius:22px}
+a.b{display:inline-block;margin-top:18px;background:#17284a;color:#fff;padding:14px 26px;border-radius:12px;text-decoration:none;font-size:17px}
+p{color:#5b6b8c;font-size:15px;line-height:1.4}
+</style>
 </head>
 <body>
-<p>Abriendo tablero…</p>
-<script>location.replace('https://script.google.com/a/macros/consultorastivala.com/s/AKfycbyEoPwgv5F5nS4LeYNsm-uXMW62BK1Mp51hvnbR2hHhBFF5bNxjE3gtI4l-8vWTTVsp/exec');</script>
-<noscript><a href="https://script.google.com/a/macros/consultorastivala.com/s/AKfycbyEoPwgv5F5nS4LeYNsm-uXMW62BK1Mp51hvnbR2hHhBFF5bNxjE3gtI4l-8vWTTVsp/exec">Abrir tablero</a></noscript>
+<div id="setup" style="display:none">
+  <img src="apple-touch-icon.png" alt="">
+  <h2>Cashflow - Inversiones</h2>
+  <p>Para el ícono en tu inicio: tocá <b>Compartir</b> → <b>Añadir a pantalla de inicio</b>.<br>Después, desde ese ícono se abre directo el tablero.</p>
+  <a class="b" href="https://script.google.com/a/macros/consultorastivala.com/s/AKfycbyEoPwgv5F5nS4LeYNsm-uXMW62BK1Mp51hvnbR2hHhBFF5bNxjE3gtI4l-8vWTTVsp/exec">Abrir tablero</a>
+</div>
+<p id="go" style="display:none">Abriendo tablero…</p>
+<script>
+var T='https://script.google.com/a/macros/consultorastivala.com/s/AKfycbyEoPwgv5F5nS4LeYNsm-uXMW62BK1Mp51hvnbR2hHhBFF5bNxjE3gtI4l-8vWTTVsp/exec';
+if(location.search.indexOf('go')>-1){
+  document.getElementById('go').style.display='block';
+  location.replace(T);
+}else{
+  document.getElementById('setup').style.display='block';
+  try{history.replaceState(null,'',location.pathname+'?go');}catch(e){}
+}
+</script>
 </body>
 </html>
